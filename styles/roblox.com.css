@@ -1,0 +1,223 @@
+/* roblox-transparency $ Make the main Roblox surfaces transparent */
+html,
+body,
+nav,
+#nav,
+.nav,
+navbar,
+.navbar,
+#navbar header,
+#header,
+.header,
+app,
+#app,
+.app,
+.alert,
+.content,
+.left-nav {
+  background-color: #151515 !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  transition:
+    background-color 0.5s ease-in-out,
+    background 0.5s ease-in-out,
+    border 0.5s ease-in-out,
+    box-shadow 0.5s ease-in-out !important;
+}
+
+.bg-surface-300 {
+  background: linear-gradient(
+    90deg,
+    color-mix(var(--color-surface-300), transparent 40%),
+    color-mix(var(--color-surface-300), transparent 75%)
+  ) !important;
+}
+
+/* roblox-mini sidebar $ Reduce the sidebar to an icon-only rail */
+.left-nav,
+.left-nav [class*="width-["] {
+  width: 64px !important;
+}
+
+/* roblox-center sidebar icons $ Center the remaining sidebar icons */
+.left-nav nav a,
+.left-nav nav button {
+  justify-content: center !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* roblox-hide sidebar labels $ Hide sidebar labels and badges */
+.left-nav nav a > span:not(.size-1000),
+.left-nav nav button > span:not(.size-1000) {
+  display: none !important;
+}
+
+/* roblox-hide plus $ Hide the Roblox Plus promotional card */
+.left-nav nav li:has(a[href="/plus"]) {
+  display: none !important;
+}
+
+@media (min-width: 1141px) {
+  .no-gutter-ads.logged-in.left-nav-new-width,
+  body.left-nav-new-width {
+    --left-nav-reserved-width: 64px !important;
+  }
+}
+/* roblox-header $ Keep the header readable while scrolling */
+/* O header usa position fixed e provavelmente tem uma classe extra
+   que remove o background ao rolar. Forçamos ele a sempre ter fundo. */
+#header.navbar-fixed-top,
+#header.rbx-header {
+  background-color: #151515 !important; /* cor sólida de fallback */
+  background: rgba(21, 21, 21, 0.85) !important;
+  backdrop-filter: blur(12px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(150%) !important;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* roblox-header shadow $ Add a soft separation shadow to the header */
+#header {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* roblox-search $ Modernize the search bar */
+#header .navbar-search .form-control,
+#header .navbar-search .input-group {
+  border-radius: 999px !important;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+#header .navbar-search .form-control:focus {
+  background-color: rgba(255, 255, 255, 0.14) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  box-shadow: none !important;
+}
+#header .navbar-search .input-addon-btn {
+  border-radius: 0 999px 999px 0 !important;
+  background: transparent !important;
+}
+
+/* roblox-search menu $ Remove the redundant search spacer */
+[class="spacer"] {
+  display: none !important;
+}
+
+/* roblox-search panel $ Style the search results dropdown */
+[data-testid="SearchLandingPageOmniFeedTestId"] {
+  position: absolute !important;
+  top: calc(100% + 10px) !important; /* logo abaixo do input de busca */
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  margin: 0 !important;
+  width: min(900px, 92vw) !important;
+  max-height: 80vh !important;
+  overflow-y: auto !important;
+
+  background: rgba(20, 20, 24, 0.92) !important;
+  backdrop-filter: blur(16px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(140%) !important;
+
+  border-radius: 16px !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.5),
+    0 2px 8px rgba(0, 0, 0, 0.3) !important;
+
+  padding: 20px 24px !important;
+  z-index: 2000 !important;
+}
+
+/* roblox-search scrollbar $ Keep the search panel scrollbar subtle */
+[data-testid="SearchLandingPageOmniFeedTestId"]::-webkit-scrollbar {
+  width: 8px;
+}
+[data-testid="SearchLandingPageOmniFeedTestId"]::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+}
+[data-testid="SearchLandingPageOmniFeedTestId"]::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* roblox-search headings $ Improve search section headings */
+[data-testid="SearchLandingPageOmniFeedTestId"] .sort-header {
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.2px;
+  margin-bottom: 12px !important;
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+[data-testid="SearchLandingPageOmniFeedTestId"] .game-sort-header-container {
+  margin-bottom: 4px !important;
+}
+
+/* roblox-search spacing $ Separate game suggestions from search prompts */
+[data-testid="SearchLandingPageOmniFeedTestId"] .flex.flex-col {
+  margin-top: 20px !important;
+  padding-top: 16px !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* roblox-game cards $ Polish recently visited game cards */
+[data-testid="SearchLandingPageOmniFeedTestId"] .game-card-container {
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease !important;
+}
+[data-testid="SearchLandingPageOmniFeedTestId"] .game-card-container:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4) !important;
+}
+[data-testid="SearchLandingPageOmniFeedTestId"] .game-card-thumb-container {
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+[data-testid="SearchLandingPageOmniFeedTestId"] .game-card-name {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  margin-top: 8px !important;
+  line-height: 1.3 !important;
+}
+[data-testid="SearchLandingPageOmniFeedTestId"] .game-card-info {
+  opacity: 0.75;
+  font-size: 12px !important;
+}
+
+/* roblox-search pills $ Polish suggested search pills */
+[data-testid="SearchLandingPageOmniFeedTestId"]
+  .search-pill-carousel-container
+  button {
+  background-color: rgba(255, 255, 255, 0.07) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  font-weight: 500 !important;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.1s ease !important;
+}
+[data-testid="SearchLandingPageOmniFeedTestId"]
+  .search-pill-carousel-container
+  button:hover {
+  background-color: rgba(255, 255, 255, 0.14) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  transform: translateY(-1px);
+}
+
+/* roblox-carousel arrows $ Simplify carousel scroll controls */
+[data-testid="SearchLandingPageOmniFeedTestId"]
+  [data-testid="game-carousel-scroll-bar"] {
+  background: transparent !important;
+  border-radius: 50% !important;
+}

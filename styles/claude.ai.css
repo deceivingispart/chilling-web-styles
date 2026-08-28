@@ -1,0 +1,22 @@
+/* claude-color matching $ Make everything color-matching */
+html,
+body,
+.z-sidebar > nav,
+.min-h-full > .bg-bg-100,
+.max-h-screen > .bg-bg-100,
+.root > div > div > div,
+main,
+aside,
+.df-header-backdrop,
+[data-chat-input-container="true"] > [role="note"][data-disclaimer="true"],
+[data-cds="ChatComposerNotices"] > [aria-live="polite"] > div,
+[data-cds="ChatComposerNotices"] > [aria-live="polite"] > div::before,
+[data-testid="answer-now-above-composer"] {
+  background-color: #151515 !important;
+  background: #151515 !important;
+}
+
+/* claude-hideFreePlanWarning $ Hide the free plan warning */
+div[data-new-page-notice-stack="true"] {
+  display: none !important;
+}

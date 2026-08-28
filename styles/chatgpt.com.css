@@ -1,0 +1,33 @@
+/* cgpt-hide hint $ I know ChatGPT can make mistakes */
+[data-testid="thread-disclaimer"] {
+  display: none !important;
+}
+
+/* cgpt-hide offer $ Hide the free offer button */
+[class*="translucent-surface"] > div > button[class*="button-glimmer-cta"] {
+  display: none !important;
+}
+
+/* cgpt-hide share $ Hide the share button */
+[data-testid="share-chat-button"] {
+  display: none !important;
+}
+
+/* cgpt-hide ads $ Hide GPT ads */
+[data-testid^="conversation-turn-"]
+  > div
+  > div
+  > div[class*="motion-reduce:transition-none"] {
+  display: none !important;
+}
+
+/* cgpt-hide prompts $ Hide use case prompt chips */
+[data-testid="use-case-prompt-chips"] {
+  display: none !important;
+}
+
+@media (min-width: 40rem) {
+  .sm\:min-h-\[calc\(var\(--empty-state-content-height\,42svh\)-var\(--header-height\)\)\] {
+    min-height: 20rem !important;
+  }
+}
